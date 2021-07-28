@@ -1,0 +1,12 @@
+{
+  "name": "kimbu-models",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "repository": "https://github.com/ravudi/frontend-types.git",
+  "author": "artem-avanesov <artsyom.avanesov@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "generate-models": "npx swagger-typescript-api --no-client --type-prefix \"I\" -p https://api.kimbu.io/swagger/v1/swagger.json --enum-names-as-values -o ./src/generated -n models.ts"
+  }
+}
