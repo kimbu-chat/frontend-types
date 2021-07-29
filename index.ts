@@ -1,20 +1,9 @@
-/* eslint-disable */
-/* tslint:disable */
-/*
- * ---------------------------------------------------------------
- * ## THIS FILE WAS GENERATED VIA SWAGGER-TYPESCRIPT-API        ##
- * ##                                                           ##
- * ## AUTHOR: acacode                                           ##
- * ## SOURCE: https://github.com/acacode/swagger-typescript-api ##
- * ---------------------------------------------------------------
- */
-
 export interface IError {
   message?: string;
-  code: IErrorCode;
+  code: ErrorCode;
 }
 
-export enum IErrorCode {
+export enum ErrorCode {
   BadRequest = "BadRequest",
   Unauthorized = "Unauthorized",
   Forbidden = "Forbidden",
@@ -28,9 +17,9 @@ export enum IErrorCode {
   NicknameAlreadyTaken = "NicknameAlreadyTaken",
 }
 
-export type IAudioAttachment = IAttachmentBase & { fileName?: string; duration: number; type: IAttachmentType };
+export type IAudioAttachment = IAttachmentBase & { fileName?: string; duration: number; type: AttachmentType };
 
-export enum IAttachmentType {
+export enum AttachmentType {
   Audio = "Audio",
   Voice = "Voice",
   Video = "Video",
@@ -48,7 +37,7 @@ export interface IAttachmentBase {
 
   /** @format int64 */
   byteSize: number;
-  type: IAttachmentType;
+  type: AttachmentType;
 }
 
 export interface IGetAudioAttachmentsRequest {
@@ -100,7 +89,7 @@ export interface ICall {
 
   /** @format int64 */
   userCallerId: number;
-  status: ICallStatus;
+  status: CallStatus;
 
   /** @format date-time */
   startDateTime?: string;
@@ -132,7 +121,7 @@ export interface IAvatar {
   previewUrl?: string;
 }
 
-export enum ICallStatus {
+export enum CallStatus {
   Negotiating = "Negotiating",
   Active = "Active",
   Ended = "Ended",
@@ -234,14 +223,14 @@ export interface IMessage {
   creationDateTime: string;
   isDeleted: boolean;
   text?: string;
-  systemMessageType: ISystemMessageType;
+  systemMessageType: SystemMessageType;
   linkedMessage?: ILinkedMessage;
-  linkedMessageType?: IMessageLinkType;
+  linkedMessageType?: MessageLinkType;
   attachments?: IAttachmentBase[];
   isEdited: boolean;
 }
 
-export enum ISystemMessageType {
+export enum SystemMessageType {
   None = "None",
   GroupChatMemberRemoved = "GroupChatMemberRemoved",
   GroupChatAvatarChanged = "GroupChatAvatarChanged",
@@ -263,7 +252,7 @@ export interface ILinkedMessage {
   attachments?: IAttachmentBase[];
 }
 
-export enum IMessageLinkType {
+export enum MessageLinkType {
   Reply = "Reply",
   Forward = "Forward",
 }
@@ -403,11 +392,11 @@ export interface ICreateMessageRequest {
 export interface ITypedAttachmentId {
   /** @format int64 */
   id: number;
-  type: IAttachmentType;
+  type: AttachmentType;
 }
 
 export interface IMessageLinkDto {
-  type: IMessageLinkType;
+  type: MessageLinkType;
 
   /** @format int64 */
   originalMessageId: number;
@@ -434,7 +423,7 @@ export interface INotifyAboutUserMessageTypingRequest {
   interlocutorName?: string;
 }
 
-export type IPictureAttachment = IAttachmentBase & { fileName?: string; previewUrl?: string; type: IAttachmentType };
+export type IPictureAttachment = IAttachmentBase & { fileName?: string; previewUrl?: string; type: AttachmentType };
 
 export interface IGetPictureAttachmentsRequest {
   /** @format int64 */
@@ -459,7 +448,7 @@ export interface IUnsubscribeFromPushNotificationsRequest {
   token: string;
 }
 
-export type IRawAttachment = IAttachmentBase & { fileName?: string; type: IAttachmentType };
+export type IRawAttachment = IAttachmentBase & { fileName?: string; type: AttachmentType };
 
 export interface IGetRawAttachmentsRequest {
   page?: IPaginationParams;
@@ -559,7 +548,7 @@ export type IVideoAttachment = IAttachmentBase & {
   fileName?: string;
   firstFrameUrl?: string;
   duration: number;
-  type: IAttachmentType;
+  type: AttachmentType;
 };
 
 export interface IGetVideoAttachmentsRequest {
@@ -581,7 +570,7 @@ export interface ICreateVideoAttachmentRequest {
   fileName?: string;
 }
 
-export type IVoiceAttachment = IAttachmentBase & { waveFormJson?: string; duration: number; type: IAttachmentType };
+export type IVoiceAttachment = IAttachmentBase & { waveFormJson?: string; duration: number; type: AttachmentType };
 
 export interface IGetVoiceAttachmentsRequest {
   page?: IPaginationParams;

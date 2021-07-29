@@ -7,6 +7,12 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "generate-models": "npx swagger-typescript-api --no-client --type-prefix \"I\" -p https://api.kimbu.io/swagger/v1/swagger.json --enum-names-as-values -o ./src/generated -n models.ts"
-  }
+    "start": "yarn tsc generate.ts && node generate.js"
+  },
+  "devDependencies": {
+    "@types/node": "^16.4.6",
+    "swagger-typescript-api": "^9.2.0",
+    "typescript": "4.3.5"
+  },
+  "dependencies": {}
 }
