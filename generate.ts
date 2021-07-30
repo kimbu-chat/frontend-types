@@ -34,7 +34,7 @@ generateApi({
   .then(({ files }) => {
     files.forEach(({ content }) => {
       fs.writeFile(
-        path.resolve(process.cwd(), "./index.ts"),
+        path.resolve(process.cwd(), "index.ts"),
         content,
         (err: NodeJS.ErrnoException | null) => {
           if (err) console.log("error", err);
