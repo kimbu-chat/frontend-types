@@ -71,12 +71,14 @@ export interface ICreateAvatarRequest {
   previewUrl?: string;
 }
 
-export interface IAddUsersToBlackListRequest {
-  userIds?: number[];
+export interface IAddUserIntoBlackListRequest {
+  /** @format int64 */
+  userId: number;
 }
 
-export interface IRemoveUsersFromBlackListRequest {
-  userIds?: number[];
+export interface IRemoveUserFromBlackListRequest {
+  /** @format int64 */
+  userId: number;
 }
 
 export interface ICall {
@@ -314,10 +316,6 @@ export interface IChatInfo {
 export interface IGetContactsRequest {
   page?: IPaginationParams;
   name?: string;
-}
-
-export interface IUpdateContactsRequest {
-  phoneNumbers?: string[];
 }
 
 export interface IAddUserIntoContactsRequest {
