@@ -7,7 +7,7 @@ const typesInterfaces = new Set();
 /* NOTE: all fields are optional expect one of `output`, `url` or `spec` */
 generateApi({
   name: "index.ts",
-  output: path.resolve(process.cwd(), "./main/"),
+  output: path.resolve(process.cwd(), "./src/main/"),
   url: "https://api.kimbu.io/swagger/v1/swagger.json",
   enumNamesAsValues: true,
   generateClient: false,
@@ -34,7 +34,7 @@ generateApi({
   .then(({ files }) => {
     files.forEach(({ content }) => {
       fs.writeFile(
-        path.resolve(process.cwd(), "./main/", "index.ts"),
+        path.resolve(process.cwd(), "./src/main/", "index.ts"),
         content,
         (err: NodeJS.ErrnoException | null) => {
           if (err) console.log("error", err);
@@ -46,7 +46,7 @@ generateApi({
 
 generateApi({
   name: "index.ts",
-  output: path.resolve(process.cwd(), "./files/"),
+  output: path.resolve(process.cwd(), "./src/files/"),
   url: "https://files.kimbu.io/swagger/v1/swagger.json",
   enumNamesAsValues: true,
   generateClient: false,
@@ -73,7 +73,7 @@ generateApi({
   .then(({ files }) => {
     files.forEach(({ content }) => {
       fs.writeFile(
-        path.resolve(process.cwd(), "./files/", "index.ts"),
+        path.resolve(process.cwd(), "./src/files/", "index.ts"),
         content,
         (err: NodeJS.ErrnoException | null) => {
           if (err) console.log("error", err);

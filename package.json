@@ -1,14 +1,14 @@
 {
   "name": "kimbu-models",
   "version": "1.0.0",
-  "main": "./index.js",
-  "types": "./index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "repository": "https://github.com/ravudi/frontend-types.git",
   "author": "artem-avanesov <artsyom.avanesov@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "yarn tsc generate.ts && node generate.js && yarn tsc --declaration index.ts"
+    "start": "yarn tsc generate.ts && node generate.js && yarn tsc"
   },
   "devDependencies": {
     "@types/node": "^16.4.6",

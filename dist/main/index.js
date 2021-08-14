@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.MessageLinkType = exports.SystemMessageType = exports.CallStatus = exports.AttachmentType = exports.ErrorCode = void 0;
 var ErrorCode;
 (function (ErrorCode) {
