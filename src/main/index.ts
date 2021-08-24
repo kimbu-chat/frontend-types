@@ -188,9 +188,7 @@ export interface IChat {
 
   /** @format int32 */
   unreadMessagesCount: number;
-
-  /** @format int64 */
-  interlocutorLastReadMessageId?: number;
+  interlocutorLastReadMessageId?: string;
   isHidden: boolean;
   isMuted: boolean;
   isBlockedByInterlocutor: boolean;
@@ -214,8 +212,7 @@ export interface IGroupChat {
 }
 
 export interface IMessage {
-  /** @format int64 */
-  id: number;
+  id: string;
   userCreator?: IUser;
 
   /** @format int64 */
@@ -401,16 +398,14 @@ export interface IMessageLinkDto {
 }
 
 export interface IEditMessageRequest {
+  messageId: string;
   text?: string;
-
-  /** @format int64 */
-  messageId: number;
   removedAttachments?: ITypedAttachmentId[];
   newAttachments?: ITypedAttachmentId[];
 }
 
 export interface IDeleteMessagesRequest {
-  ids?: number[];
+  ids?: string[];
   forEveryone: boolean;
 }
 
