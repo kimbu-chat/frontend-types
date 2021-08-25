@@ -221,8 +221,7 @@ export interface IGetChatsRequest {
 export interface IMarkChatAsReadRequest {
     /** @format int64 */
     chatId: number;
-    /** @format int64 */
-    lastReadMessageId: number;
+    lastReadMessageId: string;
 }
 export interface IDismissAddToContactsCommand {
     /** @format int64 */
