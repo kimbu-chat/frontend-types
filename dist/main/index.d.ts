@@ -201,8 +201,7 @@ export declare enum SystemMessageType {
     CallEnded = "CallEnded"
 }
 export interface ILinkedMessage {
-    /** @format int64 */
-    id: number;
+    id: string;
     userCreator?: IUser;
     text?: string;
     isEdited: boolean;
