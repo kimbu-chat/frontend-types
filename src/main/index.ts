@@ -377,10 +377,8 @@ export interface ICreateMessageRequest {
   /** @format int64 */
   chatId: number;
   attachments?: ITypedAttachmentId[];
-  link?: IMessageLinkDto;
-
-  /** @format int64 */
-  clientId: number;
+  link?: IMessageLink;
+  clientId: string;
 }
 
 export interface ITypedAttachmentId {
@@ -389,11 +387,9 @@ export interface ITypedAttachmentId {
   type: AttachmentType;
 }
 
-export interface IMessageLinkDto {
+export interface IMessageLink {
   type: MessageLinkType;
-
-  /** @format int64 */
-  originalMessageId: number;
+  originalMessageId: string;
 }
 
 export interface IEditMessageRequest {
