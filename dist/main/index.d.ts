@@ -39,8 +39,7 @@ export interface IAttachmentBase {
 }
 export interface IGetAudioAttachmentsRequest {
     page?: IPaginationParams;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
 }
 export interface IPaginationParams {
     /** @format int32 */
@@ -61,12 +60,10 @@ export interface ICreateAvatarRequest {
     previewUrl?: string;
 }
 export interface IAddUserIntoBlackListRequest {
-    /** @format int64 */
-    userId: number;
+    userId: string;
 }
 export interface IRemoveUserFromBlackListRequest {
-    /** @format int64 */
-    userId: number;
+    userId: string;
 }
 export interface ICall {
     /** @format int64 */
@@ -74,8 +71,7 @@ export interface ICall {
     /** @format date-time */
     creationDateTime: string;
     userInterlocutor?: IUser;
-    /** @format int64 */
-    userCallerId: number;
+    userCallerId: string;
     status: CallStatus;
     /** @format date-time */
     startDateTime?: string;
@@ -83,8 +79,7 @@ export interface ICall {
     endDateTime?: string;
 }
 export interface IUser {
-    /** @format int64 */
-    id: number;
+    id: string;
     firstName?: string;
     lastName?: string;
     phoneNumber?: string;
@@ -118,38 +113,32 @@ export interface IGetCallsRequest {
 export interface IAcceptCallRequest {
     answer?: any;
     isVideoEnabled: boolean;
-    /** @format int64 */
-    userInterlocutorId: number;
+    userInterlocutorId: string;
 }
 export interface ISendCallOfferCommandResponse {
     isInterlocutorBusy: boolean;
 }
 export interface ISendCallOfferRequest {
-    /** @format int64 */
-    userInterlocutorId: number;
+    userInterlocutorId: string;
     offer?: any;
     isVideoEnabled: boolean;
 }
 export interface ISendIceCandidateRequest {
     candidate?: any;
-    /** @format int64 */
-    interlocutorId: number;
+    interlocutorId: string;
 }
 export interface IAcceptRenegotiationRequest {
     answer?: any;
     isVideoEnabled: boolean;
-    /** @format int64 */
-    userInterlocutorId: number;
+    userInterlocutorId: string;
 }
 export interface ISendRenegotiationRequest {
-    /** @format int64 */
-    interlocutorId: number;
+    interlocutorId: string;
     offer?: any;
     isVideoEnabled: boolean;
 }
 export interface IChat {
-    /** @format int64 */
-    id: number;
+    id?: string;
     groupChat?: IGroupChat;
     interlocutor?: IUser;
     lastMessage?: IMessage;
@@ -164,21 +153,18 @@ export interface IChat {
     isDismissedAddToContacts: boolean;
 }
 export interface IGroupChat {
-    /** @format int64 */
-    id: number;
+    id: string;
     avatar?: IAvatar;
     name?: string;
     description?: string;
     /** @format int32 */
     membersCount: number;
-    /** @format int64 */
-    userCreatorId: number;
+    userCreatorId: string;
 }
 export interface IMessage {
     id: string;
     userCreator?: IUser;
-    /** @format int64 */
-    userCreatorId: number;
+    userCreatorId: string;
     /** @format date-time */
     creationDateTime: string;
     isDeleted: boolean;
@@ -219,26 +205,23 @@ export interface IGetChatsRequest {
     page?: IPaginationParams;
 }
 export interface IMarkChatAsReadRequest {
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
     lastReadMessageId: string;
 }
-export interface IDismissAddToContactsCommand {
-    /** @format int64 */
-    userInterlocutorId: number;
+export interface IDismissAddToContactsRequest {
+    userInterlocutorId: string;
 }
 export interface IClearChatRequest {
     forEveryone: boolean;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
 }
 export interface IChangeChatsHiddenStatusRequest {
     isHidden: boolean;
-    chatIds?: number[];
+    chatIds?: string[];
 }
 export interface IChangeChatsMuteStatusRequest {
     isMuted: boolean;
-    chatIds?: number[];
+    chatIds?: string[];
 }
 export interface IChatInfo {
     /** @format int32 */
@@ -257,23 +240,19 @@ export interface IGetContactsRequest {
     name?: string;
 }
 export interface IAddUserIntoContactsRequest {
-    /** @format int64 */
-    userId: number;
+    userId: string;
 }
 export interface IRemoveUsersFromContactListCommand {
     userIds?: number[];
 }
 export interface IGetGroupChatMembersRequest {
-    /** @format int64 */
-    groupChatId: number;
+    groupChatId: string;
     name?: string;
     page?: IPaginationParams;
 }
 export interface IRemoveUserFromGroupChatRequest {
-    /** @format int64 */
-    userId: number;
-    /** @format int64 */
-    groupChatId: number;
+    userId: string;
+    groupChatId: string;
 }
 export interface ICreateGroupChatRequest {
     name?: string;
@@ -283,13 +262,11 @@ export interface ICreateGroupChatRequest {
     avatarId?: number;
 }
 export interface IAddUsersIntoGroupChatRequest {
-    /** @format int64 */
-    id: number;
-    userIds?: number[];
+    id: string;
+    userIds?: string[];
 }
 export interface IEditGroupChatRequest {
-    /** @format int64 */
-    id: number;
+    id: string;
     name?: string;
     description?: string;
     /** @format int64 */
@@ -297,14 +274,12 @@ export interface IEditGroupChatRequest {
 }
 export interface IGetMessagesRequest {
     page?: IPaginationParams;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
     searchString?: string;
 }
 export interface ICreateMessageRequest {
     text?: string;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
     attachments?: ITypedAttachmentId[];
     link?: IMessageLink;
     clientId: string;
@@ -329,8 +304,7 @@ export interface IDeleteMessagesRequest {
     forEveryone: boolean;
 }
 export interface INotifyAboutUserMessageTypingRequest {
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
     text?: string;
     interlocutorName?: string;
 }
@@ -340,8 +314,7 @@ export declare type IPictureAttachment = IAttachmentBase & {
     type: AttachmentType;
 };
 export interface IGetPictureAttachmentsRequest {
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
     page?: IPaginationParams;
 }
 export interface ICreatePictureAttachmentRequest {
@@ -363,8 +336,7 @@ export declare type IRawAttachment = IAttachmentBase & {
 };
 export interface IGetRawAttachmentsRequest {
     page?: IPaginationParams;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
 }
 export interface ICreateRawAttachmentRequest {
     url?: string;
@@ -442,8 +414,7 @@ export declare type IVideoAttachment = IAttachmentBase & {
 };
 export interface IGetVideoAttachmentsRequest {
     page?: IPaginationParams;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
 }
 export interface ICreateVideoAttachmentRequest {
     url?: string;
@@ -461,8 +432,7 @@ export declare type IVoiceAttachment = IAttachmentBase & {
 };
 export interface IGetVoiceAttachmentsRequest {
     page?: IPaginationParams;
-    /** @format int64 */
-    chatId: number;
+    chatId: string;
 }
 export interface ICreateVoiceAttachmentRequest {
     url?: string;
