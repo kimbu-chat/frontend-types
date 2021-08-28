@@ -292,7 +292,7 @@ export interface IAddUserIntoContactsRequest {
 }
 
 export interface IRemoveUsersFromContactListRequest {
-  userIds?: number[];
+  userIds?: string[];
 }
 
 export interface IGetGroupChatMembersRequest {
