@@ -308,7 +308,7 @@ export interface IRemoveUserFromGroupChatRequest {
 
 export interface ICreateGroupChatRequest {
   name?: string;
-  userIds?: number[];
+  userIds?: string[];
   description?: string;
 
   /** @format int64 */
