@@ -115,7 +115,7 @@ export interface IAcceptCallRequest {
     isVideoEnabled: boolean;
     userInterlocutorId: string;
 }
-export interface ISendCallOfferCommandResponse {
+export interface ISendCallOfferResponse {
     isInterlocutorBusy: boolean;
 }
 export interface ISendCallOfferRequest {
@@ -242,7 +242,7 @@ export interface IGetContactsRequest {
 export interface IAddUserIntoContactsRequest {
     userId: string;
 }
-export interface IRemoveUsersFromContactListCommand {
+export interface IRemoveUsersFromContactListRequest {
     userIds?: number[];
 }
 export interface IGetGroupChatMembersRequest {

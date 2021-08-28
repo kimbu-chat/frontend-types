@@ -137,7 +137,7 @@ export interface IAcceptCallRequest {
   userInterlocutorId: string;
 }
 
-export interface ISendCallOfferCommandResponse {
+export interface ISendCallOfferResponse {
   isInterlocutorBusy: boolean;
 }
 
@@ -291,7 +291,7 @@ export interface IAddUserIntoContactsRequest {
   userId: string;
 }
 
-export interface IRemoveUsersFromContactListCommand {
+export interface IRemoveUsersFromContactListRequest {
   userIds?: number[];
 }
 
