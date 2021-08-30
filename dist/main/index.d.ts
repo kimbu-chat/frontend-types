@@ -254,6 +254,9 @@ export interface IRemoveUserFromGroupChatRequest {
     userId: string;
     groupChatId: string;
 }
+export interface ICreateGroupChatResponse {
+    id: string;
+}
 export interface ICreateGroupChatRequest {
     name?: string;
     userIds?: string[];
@@ -276,6 +279,9 @@ export interface IGetMessagesRequest {
     page?: IPaginationParams;
     chatId: string;
     searchString?: string;
+}
+export interface ICreateMessageResponse {
+    id: string;
 }
 export interface ICreateMessageRequest {
     text?: string;
