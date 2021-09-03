@@ -16,26 +16,24 @@ export declare enum ErrorCode {
     NicknameAlreadyTaken = "NicknameAlreadyTaken"
 }
 export declare type IAudioAttachment = IAttachmentBase & {
+    url?: string;
+    byteSize: number;
     fileName?: string;
     duration: number;
-    type: AttachmentType;
 };
+export interface IAttachmentBase {
+    /** @format int64 */
+    id: number;
+    /** @format date-time */
+    creationDateTime: string;
+    type: AttachmentType;
+}
 export declare enum AttachmentType {
     Audio = "Audio",
     Voice = "Voice",
     Video = "Video",
     Picture = "Picture",
     Raw = "Raw"
-}
-export interface IAttachmentBase {
-    /** @format int64 */
-    id: number;
-    /** @format date-time */
-    creationDateTime: string;
-    url?: string;
-    /** @format int64 */
-    byteSize: number;
-    type: AttachmentType;
 }
 export interface IGetAudioAttachmentsRequest {
     page?: IPaginationParams;
@@ -306,6 +304,7 @@ export interface IEditMessageRequest {
     newAttachments?: ITypedAttachmentId[];
 }
 export interface IDeleteMessagesRequest {
+    chatId: string;
     ids?: string[];
     forEveryone: boolean;
 }
@@ -315,9 +314,10 @@ export interface INotifyAboutUserMessageTypingRequest {
     interlocutorName?: string;
 }
 export declare type IPictureAttachment = IAttachmentBase & {
+    url?: string;
+    byteSize: number;
     fileName?: string;
     previewUrl?: string;
-    type: AttachmentType;
 };
 export interface IGetPictureAttachmentsRequest {
     chatId: string;
@@ -337,8 +337,9 @@ export interface IUnsubscribeFromPushNotificationsRequest {
     token: string;
 }
 export declare type IRawAttachment = IAttachmentBase & {
+    url?: string;
+    byteSize: number;
     fileName?: string;
-    type: AttachmentType;
 };
 export interface IGetRawAttachmentsRequest {
     page?: IPaginationParams;
@@ -413,10 +414,11 @@ export interface IChangeOnlineStatusRequest {
     isOnline: boolean;
 }
 export declare type IVideoAttachment = IAttachmentBase & {
+    url?: string;
+    byteSize: number;
     fileName?: string;
     firstFrameUrl?: string;
     duration: number;
-    type: AttachmentType;
 };
 export interface IGetVideoAttachmentsRequest {
     page?: IPaginationParams;
@@ -432,9 +434,10 @@ export interface ICreateVideoAttachmentRequest {
     fileName?: string;
 }
 export declare type IVoiceAttachment = IAttachmentBase & {
+    url?: string;
+    byteSize: number;
     waveFormJson?: string;
     duration: number;
-    type: AttachmentType;
 };
 export interface IGetVoiceAttachmentsRequest {
     page?: IPaginationParams;
