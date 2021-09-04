@@ -17,12 +17,7 @@ export enum ErrorCode {
   NicknameAlreadyTaken = "NicknameAlreadyTaken",
 }
 
-export type IAudioAttachment = IAttachmentBase & {
-  url?: string;
-  byteSize: number;
-  fileName?: string;
-  duration: number;
-};
+export type IAudioAttachment = IAttachmentBase & { fileName?: string; duration: number };
 
 export interface IAttachmentBase {
   /** @format int64 */
@@ -31,6 +26,10 @@ export interface IAttachmentBase {
   /** @format date-time */
   creationDateTime: string;
   type: AttachmentType;
+  url?: string;
+
+  /** @format int64 */
+  byteSize: number;
 }
 
 export enum AttachmentType {
@@ -382,12 +381,7 @@ export interface INotifyAboutUserMessageTypingRequest {
   interlocutorName?: string;
 }
 
-export type IPictureAttachment = IAttachmentBase & {
-  url?: string;
-  byteSize: number;
-  fileName?: string;
-  previewUrl?: string;
-};
+export type IPictureAttachment = IAttachmentBase & { previewUrl?: string; fileName?: string };
 
 export interface IGetPictureAttachmentsRequest {
   chatId: string;
@@ -411,7 +405,7 @@ export interface IUnsubscribeFromPushNotificationsRequest {
   token: string;
 }
 
-export type IRawAttachment = IAttachmentBase & { url?: string; byteSize: number; fileName?: string };
+export type IRawAttachment = IAttachmentBase & { fileName?: string };
 
 export interface IGetRawAttachmentsRequest {
   page?: IPaginationParams;
@@ -505,13 +499,7 @@ export interface IChangeOnlineStatusRequest {
   isOnline: boolean;
 }
 
-export type IVideoAttachment = IAttachmentBase & {
-  url?: string;
-  byteSize: number;
-  fileName?: string;
-  firstFrameUrl?: string;
-  duration: number;
-};
+export type IVideoAttachment = IAttachmentBase & { fileName?: string; firstFrameUrl?: string; duration: number };
 
 export interface IGetVideoAttachmentsRequest {
   page?: IPaginationParams;
@@ -530,12 +518,7 @@ export interface ICreateVideoAttachmentRequest {
   fileName?: string;
 }
 
-export type IVoiceAttachment = IAttachmentBase & {
-  url?: string;
-  byteSize: number;
-  waveFormJson?: string;
-  duration: number;
-};
+export type IVoiceAttachment = IAttachmentBase & { waveFormJson?: string; duration: number };
 
 export interface IGetVoiceAttachmentsRequest {
   page?: IPaginationParams;

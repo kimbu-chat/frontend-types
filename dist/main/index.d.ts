@@ -16,8 +16,6 @@ export declare enum ErrorCode {
     NicknameAlreadyTaken = "NicknameAlreadyTaken"
 }
 export declare type IAudioAttachment = IAttachmentBase & {
-    url?: string;
-    byteSize: number;
     fileName?: string;
     duration: number;
 };
@@ -27,6 +25,9 @@ export interface IAttachmentBase {
     /** @format date-time */
     creationDateTime: string;
     type: AttachmentType;
+    url?: string;
+    /** @format int64 */
+    byteSize: number;
 }
 export declare enum AttachmentType {
     Audio = "Audio",
@@ -314,10 +315,8 @@ export interface INotifyAboutUserMessageTypingRequest {
     interlocutorName?: string;
 }
 export declare type IPictureAttachment = IAttachmentBase & {
-    url?: string;
-    byteSize: number;
-    fileName?: string;
     previewUrl?: string;
+    fileName?: string;
 };
 export interface IGetPictureAttachmentsRequest {
     chatId: string;
@@ -337,8 +336,6 @@ export interface IUnsubscribeFromPushNotificationsRequest {
     token: string;
 }
 export declare type IRawAttachment = IAttachmentBase & {
-    url?: string;
-    byteSize: number;
     fileName?: string;
 };
 export interface IGetRawAttachmentsRequest {
@@ -414,8 +411,6 @@ export interface IChangeOnlineStatusRequest {
     isOnline: boolean;
 }
 export declare type IVideoAttachment = IAttachmentBase & {
-    url?: string;
-    byteSize: number;
     fileName?: string;
     firstFrameUrl?: string;
     duration: number;
@@ -434,8 +429,6 @@ export interface ICreateVideoAttachmentRequest {
     fileName?: string;
 }
 export declare type IVoiceAttachment = IAttachmentBase & {
-    url?: string;
-    byteSize: number;
     waveFormJson?: string;
     duration: number;
 };
