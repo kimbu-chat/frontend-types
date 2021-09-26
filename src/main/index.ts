@@ -288,12 +288,12 @@ export interface IClearChatRequest {
 
 export interface IChangeChatsHiddenStatusRequest {
   isHidden: boolean;
-  chatIds?: string[];
+  chatIds?: number[];
 }
 
 export interface IChangeChatsMuteStatusRequest {
   isMuted: boolean;
-  chatIds?: string[];
+  chatIds?: number[];
 }
 
 export interface IChatInfo {
@@ -324,7 +324,7 @@ export interface IAddUserIntoContactsRequest {
 }
 
 export interface IRemoveUsersFromContactListRequest {
-  userIds?: string[];
+  userIds?: number[];
 }
 
 export interface IGetGroupChatMembersRequest {
@@ -349,7 +349,7 @@ export interface ICreateGroupChatResponse {
 
 export interface ICreateGroupChatRequest {
   name?: string;
-  userIds?: string[];
+  userIds?: number[];
   description?: string;
 
   /** @format int64 */
