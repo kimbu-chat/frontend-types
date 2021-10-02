@@ -15,6 +15,8 @@ export enum ErrorCode {
   ResourceNotFound = "ResourceNotFound",
   TooManyVerificationCodes = "TooManyVerificationCodes",
   NicknameAlreadyTaken = "NicknameAlreadyTaken",
+  UserBlockedByInterlocutor = "UserBlockedByInterlocutor",
+  ChatNotExists = "ChatNotExists",
 }
 
 export type IAudioAttachment = IAttachmentBase & { fileName?: string; duration: number };
@@ -184,7 +186,7 @@ export interface IChat {
   id: number;
   groupChat?: IGroupChat;
   interlocutor?: IUser;
-  lastMessage?: IMessage;
+  lastMessage?: IChatLastMessage;
 
   /** @format int32 */
   unreadMessagesCount: number;
@@ -213,7 +215,7 @@ export interface IGroupChat {
   userCreatorId: number;
 }
 
-export interface IMessage {
+export interface IChatLastMessage {
   /** @format int64 */
   id: number;
   userCreator?: IUser;
@@ -226,7 +228,7 @@ export interface IMessage {
   isDeleted: boolean;
   text?: string;
   systemMessageType: SystemMessageType;
-  linkedMessage?: ILinkedMessage;
+  linkedMessage?: IChatLastMessageLinked;
   linkedMessageType?: MessageLinkType;
   attachments?: IAttachmentBase[];
   isEdited: boolean;
@@ -244,14 +246,13 @@ export enum SystemMessageType {
   CallEnded = "CallEnded",
 }
 
-export interface ILinkedMessage {
+export interface IChatLastMessageLinked {
   /** @format int64 */
   id: number;
   userCreator?: IUser;
   text?: string;
   isEdited: boolean;
   isDeleted: boolean;
-  attachments?: IAttachmentBase[];
 }
 
 export enum MessageLinkType {
@@ -372,6 +373,35 @@ export interface IEditGroupChatRequest {
   avatarId?: number;
 }
 
+export interface IMessage {
+  /** @format int64 */
+  id: number;
+  userCreator?: IUser;
+
+  /** @format int64 */
+  userCreatorId: number;
+
+  /** @format date-time */
+  creationDateTime: string;
+  isDeleted: boolean;
+  text?: string;
+  systemMessageType: SystemMessageType;
+  linkedMessage?: ILinkedMessage;
+  linkedMessageType?: MessageLinkType;
+  attachments?: IAttachmentBase[];
+  isEdited: boolean;
+}
+
+export interface ILinkedMessage {
+  /** @format int64 */
+  id: number;
+  userCreator?: IUser;
+  text?: string;
+  isEdited: boolean;
+  isDeleted: boolean;
+  attachments?: IAttachmentBase[];
+}
+
 export interface IGetMessagesRequest {
   page?: IPaginationParams;
 
@@ -474,16 +504,16 @@ export interface ICreateRawAttachmentRequest {
   byteSize: number;
 }
 
-export interface ISessionDto {
+export interface ISession {
   /** @format int64 */
   id: number;
   ipAddress?: string;
 
   /** @format date-time */
-  signedInDateTime: string;
+  signedInAt: string;
 
   /** @format date-time */
-  lastAccessedDateTime: string;
+  lastAccessedAt: string;
   os?: string;
   clientApp?: string;
 }
@@ -535,9 +565,6 @@ export interface IVerifySmsCodeRequest {
 export interface ISecurityTokens {
   accessToken?: string;
   refreshToken?: string;
-
-  /** @format date-time */
-  refreshTokenExpirationTime: string;
 }
 
 export interface ILoginRequest {
