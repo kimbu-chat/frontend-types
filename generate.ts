@@ -8,7 +8,7 @@ const typesInterfaces = new Set();
 generateApi({
   name: "index.ts",
   output: path.resolve(process.cwd(), "./src/main/"),
-  url: "https://api.kimbu.io/swagger/v1/swagger.json",
+  url: "https://api.dev.kimbu.io/swagger/v1/swagger.json",
   enumNamesAsValues: true,
   generateClient: false,
   hooks: {
@@ -47,7 +47,7 @@ generateApi({
 generateApi({
   name: "index.ts",
   output: path.resolve(process.cwd(), "./src/files/"),
-  url: "https://files.kimbu.io/swagger/v1/swagger.json",
+  url: "https://fs.dev.kimbu.io/swagger/v1/swagger.json",
   enumNamesAsValues: true,
   generateClient: false,
   hooks: {

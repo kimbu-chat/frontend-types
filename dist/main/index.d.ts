@@ -342,15 +342,10 @@ export interface ICreateMessageRequest {
     text?: string;
     /** @format int64 */
     chatId: number;
-    attachments?: ITypedAttachmentId[];
+    attachmentsIds?: number[];
     link?: IMessageLink;
     /** @format int64 */
     clientId: number;
-}
-export interface ITypedAttachmentId {
-    /** @format int64 */
-    id: number;
-    type: AttachmentType;
 }
 export interface IMessageLink {
     type: MessageLinkType;
@@ -361,8 +356,8 @@ export interface IEditMessageRequest {
     /** @format int64 */
     messageId: number;
     text?: string;
-    removedAttachments?: ITypedAttachmentId[];
-    newAttachments?: ITypedAttachmentId[];
+    removedAttachmentIds?: number[];
+    newAttachmentIds?: number[];
 }
 export interface IDeleteMessagesRequest {
     /** @format int64 */
@@ -435,8 +430,8 @@ export interface IEditUserRequest {
     nickname?: string;
 }
 export interface ICreateUserRequest {
-    lastName?: string;
     firstName?: string;
+    lastName?: string;
     nickname?: string;
     twoLetterCountryCode?: string;
     phoneNumber?: string;

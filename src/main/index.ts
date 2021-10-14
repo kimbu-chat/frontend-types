@@ -420,17 +420,11 @@ export interface ICreateMessageRequest {
 
   /** @format int64 */
   chatId: number;
-  attachments?: ITypedAttachmentId[];
+  attachmentsIds?: number[];
   link?: IMessageLink;
 
   /** @format int64 */
   clientId: number;
-}
-
-export interface ITypedAttachmentId {
-  /** @format int64 */
-  id: number;
-  type: AttachmentType;
 }
 
 export interface IMessageLink {
@@ -444,8 +438,8 @@ export interface IEditMessageRequest {
   /** @format int64 */
   messageId: number;
   text?: string;
-  removedAttachments?: ITypedAttachmentId[];
-  newAttachments?: ITypedAttachmentId[];
+  removedAttachmentIds?: number[];
+  newAttachmentIds?: number[];
 }
 
 export interface IDeleteMessagesRequest {
@@ -533,8 +527,8 @@ export interface IEditUserRequest {
 }
 
 export interface ICreateUserRequest {
-  lastName?: string;
   firstName?: string;
+  lastName?: string;
   nickname?: string;
   twoLetterCountryCode?: string;
   phoneNumber?: string;
