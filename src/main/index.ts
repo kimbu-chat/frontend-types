@@ -420,7 +420,7 @@ export interface ICreateMessageRequest {
 
   /** @format int64 */
   chatId: number;
-  attachmentsIds?: number[];
+  attachmentIds?: number[];
   link?: IMessageLink;
 
   /** @format int64 */

@@ -342,7 +342,7 @@ export interface ICreateMessageRequest {
     text?: string;
     /** @format int64 */
     chatId: number;
-    attachmentsIds?: number[];
+    attachmentIds?: number[];
     link?: IMessageLink;
     /** @format int64 */
     clientId: number;
