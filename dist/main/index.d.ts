@@ -388,10 +388,7 @@ export interface ICreatePictureAttachmentRequest {
     fileName?: string;
 }
 export interface ISubscribeToPushNotificationsRequest {
-    token: string;
-}
-export interface IUnsubscribeFromPushNotificationsRequest {
-    token: string;
+    token?: string;
 }
 export declare type IRawAttachment = IAttachmentBase & {
     fileName?: string;
@@ -445,19 +442,19 @@ export interface IChangeUserPhoneNumberRequest {
 export interface ISendSmsCodeRequest {
     phoneNumber?: string;
 }
-export interface IVerifySmsCodeResponse {
-    isCodeCorrect: boolean;
-    userExists: boolean;
-}
-export interface IVerifySmsCodeRequest {
-    phoneNumber?: string;
-    code?: string;
-}
 export interface ISecurityTokens {
     accessToken?: string;
     refreshToken?: string;
 }
 export interface ILoginRequest {
+    phoneNumber?: string;
+    code?: string;
+}
+export interface IVerifySmsCodeResponse {
+    isCodeCorrect: boolean;
+    userExists: boolean;
+}
+export interface IVerifySmsCodeRequest {
     phoneNumber?: string;
     code?: string;
 }
