@@ -242,6 +242,7 @@ export enum SystemMessageType {
   GroupChatMemberAdded = "GroupChatMemberAdded",
   GroupChatNameChanged = "GroupChatNameChanged",
   GroupChatAvatarRemoved = "GroupChatAvatarRemoved",
+  GroupChatMemberLeft = "GroupChatMemberLeft",
   UserCreated = "UserCreated",
   CallEnded = "CallEnded",
 }

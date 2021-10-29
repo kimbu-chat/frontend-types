@@ -44,6 +44,7 @@ var SystemMessageType;
     SystemMessageType["GroupChatMemberAdded"] = "GroupChatMemberAdded";
     SystemMessageType["GroupChatNameChanged"] = "GroupChatNameChanged";
     SystemMessageType["GroupChatAvatarRemoved"] = "GroupChatAvatarRemoved";
+    SystemMessageType["GroupChatMemberLeft"] = "GroupChatMemberLeft";
     SystemMessageType["UserCreated"] = "UserCreated";
     SystemMessageType["CallEnded"] = "CallEnded";
 })(SystemMessageType = exports.SystemMessageType || (exports.SystemMessageType = {}));
