@@ -114,7 +114,7 @@ export declare enum CallStatus {
 }
 export interface IGetCallsRequest {
     page: IPaginationParams;
-    name: string;
+    name?: string;
 }
 export interface IAcceptCallRequest {
     answer: any;
@@ -151,9 +151,9 @@ export interface ISendRenegotiationRequest {
 export interface IChat {
     /** @format int64 */
     id: number;
-    groupChat: IGroupChat;
-    interlocutor: IUser;
-    lastMessage: IChatLastMessage;
+    groupChat?: IGroupChat;
+    interlocutor?: IUser;
+    lastMessage?: IChatLastMessage;
     /** @format int32 */
     unreadMessagesCount: number;
     /** @format int64 */
@@ -168,9 +168,9 @@ export interface IChat {
 export interface IGroupChat {
     /** @format int64 */
     id: number;
-    avatar: IAvatar;
+    avatar?: IAvatar;
     name: string;
-    description: string;
+    description?: string;
     /** @format int32 */
     membersCount: number;
     /** @format int64 */
@@ -185,11 +185,11 @@ export interface IChatLastMessage {
     /** @format date-time */
     creationDateTime: string;
     isDeleted: boolean;
-    text: string;
+    text?: string;
     systemMessageType: SystemMessageType;
-    linkedMessage: IChatLastMessageLinked;
+    linkedMessage?: IChatLastMessageLinked;
     linkedMessageType?: MessageLinkType;
-    attachments: IAttachmentBase[];
+    attachments?: IAttachmentBase[];
     isEdited: boolean;
 }
 export declare enum SystemMessageType {
@@ -208,7 +208,7 @@ export interface IChatLastMessageLinked {
     /** @format int64 */
     id: number;
     userCreator: IUser;
-    text: string;
+    text?: string;
     isEdited: boolean;
     isDeleted: boolean;
 }
@@ -217,7 +217,7 @@ export declare enum MessageLinkType {
     Forward = "Forward"
 }
 export interface IGetChatsRequest {
-    name: string;
+    name?: string;
     showOnlyHidden: boolean;
     showAll: boolean;
     page: IPaginationParams;
@@ -259,7 +259,7 @@ export interface IChatInfo {
 }
 export interface IGetContactsRequest {
     page: IPaginationParams;
-    name: string;
+    name?: string;
 }
 export interface IAddUserIntoContactsRequest {
     /** @format int64 */
@@ -271,7 +271,7 @@ export interface IRemoveUsersFromContactListRequest {
 export interface IGetGroupChatMembersRequest {
     /** @format int64 */
     groupChatId: number;
-    name: string;
+    name?: string;
     page: IPaginationParams;
 }
 export interface IRemoveUserFromGroupChatRequest {
@@ -287,7 +287,7 @@ export interface ICreateGroupChatResponse {
 export interface ICreateGroupChatRequest {
     name: string;
     userIds: number[];
-    description: string;
+    description?: string;
     /** @format int64 */
     avatarId?: number;
 }
@@ -300,7 +300,7 @@ export interface IEditGroupChatRequest {
     /** @format int64 */
     id: number;
     name: string;
-    description: string;
+    description?: string;
     /** @format int64 */
     avatarId?: number;
 }
@@ -313,9 +313,9 @@ export interface IMessage {
     /** @format date-time */
     creationDateTime: string;
     isDeleted: boolean;
-    text: string;
+    text?: string;
     systemMessageType: SystemMessageType;
-    linkedMessage: ILinkedMessage;
+    linkedMessage?: ILinkedMessage;
     linkedMessageType?: MessageLinkType;
     attachments: IAttachmentBase[];
     isEdited: boolean;
@@ -324,27 +324,27 @@ export interface ILinkedMessage {
     /** @format int64 */
     id: number;
     userCreator: IUser;
-    text: string;
+    text?: string;
     isEdited: boolean;
     isDeleted: boolean;
-    attachments: IAttachmentBase[];
+    attachments?: IAttachmentBase[];
 }
 export interface IGetMessagesRequest {
     page: IPaginationParams;
     /** @format int64 */
     chatId: number;
-    searchString: string;
+    searchString?: string;
 }
 export interface ICreateMessageResponse {
     /** @format int64 */
     id: number;
 }
 export interface ICreateMessageRequest {
-    text: string;
+    text?: string;
     /** @format int64 */
     chatId: number;
-    attachmentIds: number[];
-    link: IMessageLink;
+    attachmentIds?: number[];
+    link?: IMessageLink;
     /** @format int64 */
     clientId: number;
 }
@@ -356,9 +356,9 @@ export interface IMessageLink {
 export interface IEditMessageRequest {
     /** @format int64 */
     messageId: number;
-    text: string;
-    removedAttachmentIds: number[];
-    newAttachmentIds: number[];
+    text?: string;
+    removedAttachmentIds?: number[];
+    newAttachmentIds?: number[];
 }
 export interface IDeleteMessagesRequest {
     /** @format int64 */
@@ -507,7 +507,7 @@ export interface ICallEndedSystemMessage {
     /** @format int64 */
     userCalleeId: number;
     /** @format int32 */
-    duration: number;
+    duration?: number;
     status: any;
 }
 export interface IGroupChatMemberAddedSystemMessage {
