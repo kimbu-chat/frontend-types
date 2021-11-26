@@ -65,10 +65,6 @@ export interface IAddUserIntoBlackListRequest {
     /** @format int64 */
     userId: number;
 }
-export interface IRemoveUserFromBlackListRequest {
-    /** @format int64 */
-    userId: number;
-}
 export interface ICall {
     /** @format int64 */
     id: number;
@@ -274,6 +270,12 @@ export interface IGetGroupChatMembersRequest {
     name?: string;
     page: IPaginationParams;
 }
+export interface IGetAllowedUsersForGroupChatRequest {
+    /** @format int64 */
+    groupChatId: number;
+    name?: string;
+    page: IPaginationParams;
+}
 export interface IRemoveUserFromGroupChatRequest {
     /** @format int64 */
     userId: number;
@@ -369,7 +371,6 @@ export interface IDeleteMessagesRequest {
 export interface INotifyAboutUserMessageTypingRequest {
     /** @format int64 */
     chatId: number;
-    text: string;
     interlocutorName: string;
 }
 export declare type IPictureAttachment = IAttachmentBase & {
