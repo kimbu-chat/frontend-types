@@ -188,7 +188,6 @@ export interface IChat {
 
   /** @format int64 */
   interlocutorLastReadMessageId?: number;
-  isHidden: boolean;
   isMuted: boolean;
   isBlockedByInterlocutor: boolean;
   isBlockedByUser: boolean;
@@ -259,7 +258,6 @@ export enum MessageLinkType {
 export interface IGetChatsRequest {
   name?: string;
   showOnlyHidden: boolean;
-  showAll: boolean;
   page: IPaginationParams;
 }
 
@@ -322,6 +320,21 @@ export interface IAddUserIntoContactsRequest {
 
 export interface IRemoveUsersFromContactListRequest {
   userIds: number[];
+}
+
+export interface IGetUserByPhoneNumberQueryResult {
+  /** @format int64 */
+  id: number;
+  firstName: string;
+  lastName: string;
+  phoneNumber: string;
+  nickname: string;
+  avatar?: IAvatar;
+
+  /** @format date-time */
+  lastOnlineTime: string;
+  online: boolean;
+  inContacts: boolean;
 }
 
 export interface IGetGroupChatMembersRequest {
@@ -402,7 +415,7 @@ export interface ILinkedMessage {
   text?: string;
   isEdited: boolean;
   isDeleted: boolean;
-  attachments?: IAttachmentBase[];
+  attachments: IAttachmentBase[];
 }
 
 export interface IGetMessagesRequest {
@@ -522,6 +535,11 @@ export interface IEditUserRequest {
   /** @format int64 */
   avatarId?: number;
   nickname: string;
+}
+
+export interface ICreateUserResponse {
+  /** @format int64 */
+  id: number;
 }
 
 export interface ICreateUserRequest {
