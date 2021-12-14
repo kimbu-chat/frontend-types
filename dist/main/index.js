@@ -11,7 +11,7 @@ var ErrorCode;
     ErrorCode["DuplicatePhoneNumber"] = "DuplicatePhoneNumber";
     ErrorCode["InvalidVerificationCode"] = "InvalidVerificationCode";
     ErrorCode["PhoneNumberNotConfirmed"] = "PhoneNumberNotConfirmed";
-    ErrorCode["ResourceNotFound"] = "ResourceNotFound";
+    ErrorCode["UserNotRegistered"] = "UserNotRegistered";
     ErrorCode["TooManyVerificationCodes"] = "TooManyVerificationCodes";
     ErrorCode["NicknameAlreadyTaken"] = "NicknameAlreadyTaken";
     ErrorCode["UserBlockedByInterlocutor"] = "UserBlockedByInterlocutor";

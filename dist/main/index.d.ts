@@ -11,7 +11,7 @@ export declare enum ErrorCode {
     DuplicatePhoneNumber = "DuplicatePhoneNumber",
     InvalidVerificationCode = "InvalidVerificationCode",
     PhoneNumberNotConfirmed = "PhoneNumberNotConfirmed",
-    ResourceNotFound = "ResourceNotFound",
+    UserNotRegistered = "UserNotRegistered",
     TooManyVerificationCodes = "TooManyVerificationCodes",
     NicknameAlreadyTaken = "NicknameAlreadyTaken",
     UserBlockedByInterlocutor = "UserBlockedByInterlocutor",
@@ -262,19 +262,6 @@ export interface IAddUserIntoContactsRequest {
 export interface IRemoveUsersFromContactListRequest {
     userIds: number[];
 }
-export interface IGetUserByPhoneNumberQueryResult {
-    /** @format int64 */
-    id: number;
-    firstName: string;
-    lastName: string;
-    phoneNumber: string;
-    nickname: string;
-    avatar?: IAvatar;
-    /** @format date-time */
-    lastOnlineTime: string;
-    online: boolean;
-    inContacts: boolean;
-}
 export interface IGetGroupChatMembersRequest {
     /** @format int64 */
     groupChatId: number;
@@ -480,6 +467,10 @@ export interface IRefreshTokenRequest {
 }
 export interface IChangeOnlineStatusRequest {
     isOnline: boolean;
+}
+export interface IGetUserByPhoneNumberQueryResult {
+    inContacts: boolean;
+    user: IUser;
 }
 export declare type IVideoAttachment = IAttachmentBase & {
     fileName: string;
