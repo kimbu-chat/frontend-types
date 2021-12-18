@@ -181,7 +181,7 @@ export interface IChat {
   id: number;
   groupChat?: IGroupChat;
   interlocutor?: IUser;
-  lastMessage?: IChatLastMessage;
+  lastMessage?: IMessage;
 
   /** @format int32 */
   unreadMessagesCount: number;
@@ -209,7 +209,7 @@ export interface IGroupChat {
   userCreatorId: number;
 }
 
-export interface IChatLastMessage {
+export interface IMessage {
   /** @format int64 */
   id: number;
   userCreator: IUser;
@@ -222,10 +222,10 @@ export interface IChatLastMessage {
   isDeleted: boolean;
   text?: string;
   systemMessageType: SystemMessageType;
-  linkedMessage?: IChatLastMessageLinked;
+  linkedMessage?: ILinkedMessage;
   linkedMessageType?: MessageLinkType;
+  attachments: IAttachmentBase[];
   isEdited: boolean;
-  hasAttachments: boolean;
 }
 
 export enum SystemMessageType {
@@ -241,7 +241,7 @@ export enum SystemMessageType {
   CallEnded = "CallEnded",
 }
 
-export interface IChatLastMessageLinked {
+export interface ILinkedMessage {
   /** @format int64 */
   id: number;
   userCreator: IUser;
@@ -251,7 +251,7 @@ export interface IChatLastMessageLinked {
   text?: string;
   isEdited: boolean;
   isDeleted: boolean;
-  hasAttachments: boolean;
+  attachments: IAttachmentBase[];
 }
 
 export enum MessageLinkType {
@@ -376,35 +376,6 @@ export interface IEditGroupChatRequest {
 
   /** @format int64 */
   avatarId?: number;
-}
-
-export interface IMessage {
-  /** @format int64 */
-  id: number;
-  userCreator: IUser;
-
-  /** @format int64 */
-  userCreatorId: number;
-
-  /** @format date-time */
-  creationDateTime: string;
-  isDeleted: boolean;
-  text?: string;
-  systemMessageType: SystemMessageType;
-  linkedMessage?: ILinkedMessage;
-  linkedMessageType?: MessageLinkType;
-  attachments: IAttachmentBase[];
-  isEdited: boolean;
-}
-
-export interface ILinkedMessage {
-  /** @format int64 */
-  id: number;
-  userCreator: IUser;
-  text?: string;
-  isEdited: boolean;
-  isDeleted: boolean;
-  attachments: IAttachmentBase[];
 }
 
 export interface IGetMessagesRequest {
