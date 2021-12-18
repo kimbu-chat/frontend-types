@@ -184,8 +184,8 @@ export interface IChatLastMessage {
     systemMessageType: SystemMessageType;
     linkedMessage?: IChatLastMessageLinked;
     linkedMessageType?: MessageLinkType;
-    attachments?: IAttachmentBase[];
     isEdited: boolean;
+    hasAttachments: boolean;
 }
 export declare enum SystemMessageType {
     None = "None",
@@ -203,9 +203,12 @@ export interface IChatLastMessageLinked {
     /** @format int64 */
     id: number;
     userCreator: IUser;
+    /** @format int64 */
+    userCreatorId: number;
     text?: string;
     isEdited: boolean;
     isDeleted: boolean;
+    hasAttachments: boolean;
 }
 export declare enum MessageLinkType {
     Reply = "Reply",
