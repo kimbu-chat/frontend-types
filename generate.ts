@@ -8,7 +8,7 @@ const typesInterfaces = new Set();
 generateApi({
   name: "index.ts",
   output: path.resolve(process.cwd(), "./src/main/"),
-  url: "http://localhost:5051/swagger/v1/swagger.json",
+  url: "http://localhost:5011/swagger/v1/swagger.json",
   enumNamesAsValues: true,
   generateClient: false,
   hooks: {

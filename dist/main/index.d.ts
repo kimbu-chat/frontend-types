@@ -265,7 +265,7 @@ export interface IAddUserIntoContactsRequest {
 export interface IRemoveUsersFromContactListRequest {
     userIds: number[];
 }
-export interface IUpdateContactsRequest {
+export interface IImportContactsRequest {
     phoneNumbers: string[];
 }
 export interface IGetGroupChatMembersRequest {
