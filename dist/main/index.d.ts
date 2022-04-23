@@ -265,6 +265,9 @@ export interface IAddUserIntoContactsRequest {
 export interface IRemoveUsersFromContactListRequest {
     userIds: number[];
 }
+export interface IImportContactsRequest {
+    phoneNumbers: string[];
+}
 export interface IGetGroupChatMembersRequest {
     /** @format int64 */
     groupChatId: number;
@@ -412,7 +415,6 @@ export interface ICreateUserRequest {
     firstName: string;
     lastName: string;
     nickname: string;
-    twoLetterCountryCode: string;
     phoneNumber: string;
     /** @format int64 */
     avatarId?: number;
