@@ -9,6 +9,7 @@ generateApi({
   name: "index.ts",
   output: path.resolve(process.cwd(), "./src/main/"),
   url: "http://localhost:5011/swagger/v1/swagger.json",
+  // url: "https://api.dev.kimbu.io/swagger/v1/swagger.json",
   enumNamesAsValues: true,
   generateClient: false,
   hooks: {
