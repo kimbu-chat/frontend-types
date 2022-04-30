@@ -183,6 +183,9 @@ export interface IChat {
   interlocutor?: IUser;
   lastMessage?: IMessage;
 
+  /** @format date-time */
+  lastMessageSetAt?: string;
+
   /** @format int32 */
   unreadMessagesCount: number;
 

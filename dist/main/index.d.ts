@@ -150,6 +150,8 @@ export interface IChat {
     groupChat?: IGroupChat;
     interlocutor?: IUser;
     lastMessage?: IMessage;
+    /** @format date-time */
+    lastMessageSetAt?: string;
     /** @format int32 */
     unreadMessagesCount: number;
     /** @format int64 */
