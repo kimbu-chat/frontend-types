@@ -16,6 +16,7 @@ var ErrorCode;
     ErrorCode["NicknameAlreadyTaken"] = "NicknameAlreadyTaken";
     ErrorCode["UserBlockedByInterlocutor"] = "UserBlockedByInterlocutor";
     ErrorCode["ChatNotExists"] = "ChatNotExists";
+    ErrorCode["UnprocessableEntity"] = "UnprocessableEntity";
 })(ErrorCode = exports.ErrorCode || (exports.ErrorCode = {}));
 var AttachmentType;
 (function (AttachmentType) {

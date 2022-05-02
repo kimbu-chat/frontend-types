@@ -17,6 +17,7 @@ export enum ErrorCode {
   NicknameAlreadyTaken = "NicknameAlreadyTaken",
   UserBlockedByInterlocutor = "UserBlockedByInterlocutor",
   ChatNotExists = "ChatNotExists",
+  UnprocessableEntity = "UnprocessableEntity",
 }
 
 export type IAudioAttachment = IAttachmentBase & { fileName: string; duration: number };
@@ -527,6 +528,13 @@ export interface IChangeUserPhoneNumberRequest {
   confirmationCode: string;
   phoneNumber: string;
 }
+
+export interface ISendSmsConfirmationCodeResponse {
+  /** @format date-time */
+  sendCodeAgainAt: string;
+}
+
+export type IErrorOfSendSmsConfirmationCodeResponse = IError & { additionalData: ISendSmsConfirmationCodeResponse };
 
 export interface ISendSmsCodeRequest {
   phoneNumber: string;

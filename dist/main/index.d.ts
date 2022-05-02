@@ -15,7 +15,8 @@ export declare enum ErrorCode {
     TooManyVerificationCodes = "TooManyVerificationCodes",
     NicknameAlreadyTaken = "NicknameAlreadyTaken",
     UserBlockedByInterlocutor = "UserBlockedByInterlocutor",
-    ChatNotExists = "ChatNotExists"
+    ChatNotExists = "ChatNotExists",
+    UnprocessableEntity = "UnprocessableEntity"
 }
 export declare type IAudioAttachment = IAttachmentBase & {
     fileName: string;
@@ -428,6 +429,13 @@ export interface IChangeUserPhoneNumberRequest {
     confirmationCode: string;
     phoneNumber: string;
 }
+export interface ISendSmsConfirmationCodeResponse {
+    /** @format date-time */
+    sendCodeAgainAt: string;
+}
+export declare type IErrorOfSendSmsConfirmationCodeResponse = IError & {
+    additionalData: ISendSmsConfirmationCodeResponse;
+};
 export interface ISendSmsCodeRequest {
     phoneNumber: string;
 }
