@@ -530,11 +530,11 @@ export interface IChangeUserPhoneNumberRequest {
 }
 
 export interface ISendSmsConfirmationCodeResponse {
+  activeCodeExists: boolean;
+
   /** @format date-time */
   sendCodeAgainAt: string;
 }
-
-export type IErrorOfSendSmsConfirmationCodeResponse = IError & { additionalData: ISendSmsConfirmationCodeResponse };
 
 export interface ISendSmsCodeRequest {
   phoneNumber: string;
