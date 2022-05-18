@@ -1,23 +1,26 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MessageLinkType = exports.SystemMessageType = exports.CallStatus = exports.AttachmentType = exports.ErrorCode = void 0;
-var ErrorCode;
-(function (ErrorCode) {
-    ErrorCode["BadRequest"] = "BadRequest";
-    ErrorCode["Unauthorized"] = "Unauthorized";
-    ErrorCode["Forbidden"] = "Forbidden";
-    ErrorCode["InternalServerError"] = "InternalServerError";
-    ErrorCode["DuplicateNickname"] = "DuplicateNickname";
-    ErrorCode["DuplicatePhoneNumber"] = "DuplicatePhoneNumber";
-    ErrorCode["InvalidVerificationCode"] = "InvalidVerificationCode";
-    ErrorCode["PhoneNumberNotConfirmed"] = "PhoneNumberNotConfirmed";
-    ErrorCode["UserNotRegistered"] = "UserNotRegistered";
-    ErrorCode["TooManyVerificationCodes"] = "TooManyVerificationCodes";
-    ErrorCode["NicknameAlreadyTaken"] = "NicknameAlreadyTaken";
-    ErrorCode["UserBlockedByInterlocutor"] = "UserBlockedByInterlocutor";
-    ErrorCode["ChatNotExists"] = "ChatNotExists";
-    ErrorCode["UnprocessableEntity"] = "UnprocessableEntity";
-})(ErrorCode = exports.ErrorCode || (exports.ErrorCode = {}));
+exports.MessageLinkType = exports.SystemMessageType = exports.CallStatus = exports.AttachmentType = exports.ApplicationErrorCode = void 0;
+var ApplicationErrorCode;
+(function (ApplicationErrorCode) {
+    ApplicationErrorCode["BadRequest"] = "BadRequest";
+    ApplicationErrorCode["Unauthorized"] = "Unauthorized";
+    ApplicationErrorCode["Forbidden"] = "Forbidden";
+    ApplicationErrorCode["InternalServerError"] = "InternalServerError";
+    ApplicationErrorCode["UnprocessableEntity"] = "UnprocessableEntity";
+    ApplicationErrorCode["DuplicateNickname"] = "DuplicateNickname";
+    ApplicationErrorCode["DuplicatePhoneNumber"] = "DuplicatePhoneNumber";
+    ApplicationErrorCode["InvalidVerificationCode"] = "InvalidVerificationCode";
+    ApplicationErrorCode["PhoneNumberNotConfirmed"] = "PhoneNumberNotConfirmed";
+    ApplicationErrorCode["UserNotRegistered"] = "UserNotRegistered";
+    ApplicationErrorCode["NicknameAlreadyTaken"] = "NicknameAlreadyTaken";
+    ApplicationErrorCode["UserBlockedByInterlocutor"] = "UserBlockedByInterlocutor";
+    ApplicationErrorCode["ChatNotExists"] = "ChatNotExists";
+    ApplicationErrorCode["GoogleAuthEmailNotVerified"] = "GoogleAuthEmailNotVerified";
+    ApplicationErrorCode["GoogleAuthIdTokenInvalid"] = "GoogleAuthIdTokenInvalid";
+    ApplicationErrorCode["GoogleAuthDisabled"] = "GoogleAuthDisabled";
+    ApplicationErrorCode["DuplicateEmailAddress"] = "DuplicateEmailAddress";
+})(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var AttachmentType;
 (function (AttachmentType) {
     AttachmentType["Audio"] = "Audio";

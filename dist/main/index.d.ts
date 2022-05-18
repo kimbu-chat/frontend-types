@@ -1,22 +1,25 @@
-export interface IError {
+export interface IApplicationError {
     message: string;
-    code: ErrorCode;
+    code: ApplicationErrorCode;
 }
-export declare enum ErrorCode {
+export declare enum ApplicationErrorCode {
     BadRequest = "BadRequest",
     Unauthorized = "Unauthorized",
     Forbidden = "Forbidden",
     InternalServerError = "InternalServerError",
+    UnprocessableEntity = "UnprocessableEntity",
     DuplicateNickname = "DuplicateNickname",
     DuplicatePhoneNumber = "DuplicatePhoneNumber",
     InvalidVerificationCode = "InvalidVerificationCode",
     PhoneNumberNotConfirmed = "PhoneNumberNotConfirmed",
     UserNotRegistered = "UserNotRegistered",
-    TooManyVerificationCodes = "TooManyVerificationCodes",
     NicknameAlreadyTaken = "NicknameAlreadyTaken",
     UserBlockedByInterlocutor = "UserBlockedByInterlocutor",
     ChatNotExists = "ChatNotExists",
-    UnprocessableEntity = "UnprocessableEntity"
+    GoogleAuthEmailNotVerified = "GoogleAuthEmailNotVerified",
+    GoogleAuthIdTokenInvalid = "GoogleAuthIdTokenInvalid",
+    GoogleAuthDisabled = "GoogleAuthDisabled",
+    DuplicateEmailAddress = "DuplicateEmailAddress"
 }
 export declare type IAudioAttachment = IAttachmentBase & {
     fileName: string;
@@ -425,12 +428,24 @@ export interface ICreateUserRequest {
     /** @format int64 */
     avatarId?: number;
 }
+export interface ICreateUserFromGoogleAccountResponse {
+    /** @format int64 */
+    id: number;
+}
+export interface ICreateUserFromGoogleAccountRequest {
+    firstName: string;
+    lastName: string;
+    nickname: string;
+    googleIdToken: string;
+    googleRefreshToken: string;
+    /** @format int64 */
+    avatarId?: number;
+}
 export interface IChangeUserPhoneNumberRequest {
     confirmationCode: string;
     phoneNumber: string;
 }
 export interface ISendSmsConfirmationCodeResponse {
-    activeCodeExists: boolean;
     /** @format date-time */
     sendCodeAgainAt: string;
 }
@@ -444,6 +459,9 @@ export interface ISecurityTokens {
 export interface ILoginRequest {
     phoneNumber: string;
     code: string;
+}
+export interface ISignInFromGoogleRequest {
+    idToken: string;
 }
 export interface IVerifySmsCodeResponse {
     isCodeCorrect: boolean;
