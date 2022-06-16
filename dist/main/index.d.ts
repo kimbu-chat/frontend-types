@@ -437,7 +437,6 @@ export interface ICreateUserFromGoogleAccountRequest {
     lastName: string;
     nickname: string;
     googleIdToken: string;
-    googleRefreshToken: string;
     /** @format int64 */
     avatarId?: number;
 }
@@ -451,6 +450,9 @@ export interface ISendSmsConfirmationCodeResponse {
 }
 export interface ISendSmsCodeRequest {
     phoneNumber: string;
+}
+export interface ICheckNicknameAvailabilityResponse {
+    available: boolean;
 }
 export interface ISecurityTokens {
     accessToken: string;
