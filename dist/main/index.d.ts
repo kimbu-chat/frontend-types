@@ -19,7 +19,8 @@ export declare enum ApplicationErrorCode {
     GoogleAuthEmailNotVerified = "GoogleAuthEmailNotVerified",
     GoogleAuthIdTokenInvalid = "GoogleAuthIdTokenInvalid",
     GoogleAuthDisabled = "GoogleAuthDisabled",
-    DuplicateEmailAddress = "DuplicateEmailAddress"
+    DuplicateEmailAddress = "DuplicateEmailAddress",
+    LoginByPhoneNumberDisabled = "LoginByPhoneNumberDisabled"
 }
 export declare type IAudioAttachment = IAttachmentBase & {
     fileName: string;

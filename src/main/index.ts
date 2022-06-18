@@ -21,6 +21,7 @@ export enum ApplicationErrorCode {
   GoogleAuthIdTokenInvalid = "GoogleAuthIdTokenInvalid",
   GoogleAuthDisabled = "GoogleAuthDisabled",
   DuplicateEmailAddress = "DuplicateEmailAddress",
+  LoginByPhoneNumberDisabled = "LoginByPhoneNumberDisabled",
 }
 
 export type IAudioAttachment = IAttachmentBase & { fileName: string; duration: number };

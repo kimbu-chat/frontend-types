@@ -20,6 +20,7 @@ var ApplicationErrorCode;
     ApplicationErrorCode["GoogleAuthIdTokenInvalid"] = "GoogleAuthIdTokenInvalid";
     ApplicationErrorCode["GoogleAuthDisabled"] = "GoogleAuthDisabled";
     ApplicationErrorCode["DuplicateEmailAddress"] = "DuplicateEmailAddress";
+    ApplicationErrorCode["LoginByPhoneNumberDisabled"] = "LoginByPhoneNumberDisabled";
 })(ApplicationErrorCode = exports.ApplicationErrorCode || (exports.ApplicationErrorCode = {}));
 var AttachmentType;
 (function (AttachmentType) {
