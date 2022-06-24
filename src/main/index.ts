@@ -271,6 +271,7 @@ export interface IGetChatsRequest {
   name?: string;
   showOnlyHidden: boolean;
   page: IPaginationParams;
+  globalSearch: boolean;
 }
 
 export interface IMarkChatAsReadRequest {
